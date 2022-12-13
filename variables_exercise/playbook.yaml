@@ -6,7 +6,7 @@
   - name: Clone a Git repo
     git:
       repo: "{{app_repo}}"
-      dest: /
+      dest: /git_repo
       clone: yes
       update: yes
 
