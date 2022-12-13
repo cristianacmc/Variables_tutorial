@@ -12,8 +12,8 @@
 
   - name: Creating a file containing the hosts IP 
     template:                          
-      src: "{{ ansible_all_ipv4_addresses }}"  
-      dest: . /hots_ip.txt
+      src: "{{ ansible_default_ipv4.address }}"  
+      dest: /home/ubuntu/hots_ip.txt
     notify: storing hosts IP address
 
   handlers:                            
