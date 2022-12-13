@@ -20,4 +20,4 @@
   - name: "Print message if the system is Ubuntu"              
     debug:
       msg: "Your OS is {{ inventory_hostname }}"
-    when: "{{ inventory_hostname }}"== ubuntu
+    when: "{{ inventory_hostname }}== ubuntu"
