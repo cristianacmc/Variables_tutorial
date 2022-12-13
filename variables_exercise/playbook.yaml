@@ -6,7 +6,7 @@
   - name: Clone a Git repo
     git:
       repo: "{{app_repo}}"
-      dest: /git_repo
+      dest: home/ubuntu/cristiana/app_repo
       clone: yes
       update: yes
 
@@ -19,5 +19,5 @@
   handlers:                            
   - name: "Print message if the system is Ubuntu"              
     debug:
-      msg: "Your OS is {{ inventory_hostname }}"
-    when: "{{ inventory_hostname }}== ubuntu"
+      msg: "Your OS is {{ ansible_distribution }}"
+    when: "{{ ansible_distribution }}== ubuntu"
