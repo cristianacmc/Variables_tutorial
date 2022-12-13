@@ -11,10 +11,12 @@
       name: nginx
       state: started
   - name: Add nginx conf
-    copy:
-      src: nginx.conf
+    templates:
+      src: "{{ path_to_nginx_conf }}"
       dest: /etc/nginx/nginx.conf
-  - name: Restart nginx
-    service: 
-      name: nginx
-      state: restartedz
+    notify: Restart nginx
+  handlers:
+  - name: "Restart Nginx"
+  service:
+    name: "nginx"
+    state: "restarted"
