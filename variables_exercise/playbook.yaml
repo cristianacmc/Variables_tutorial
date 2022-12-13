@@ -4,7 +4,7 @@
     app_repo: https://gitlab.com/qacdevops/flask-stages.git 
   tasks:
   - name: Clone a Git repo
-      git:
+    git:
       repo: "{{app_repo}}"
       dest: /
       clone: yes
