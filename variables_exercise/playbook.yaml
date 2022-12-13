@@ -1,6 +1,6 @@
 - hosts: all
   become: true
-  vars:                                                               # Add
+  vars:                                                               
     app_repo: https://gitlab.com/qacdevops/flask-stages.git 
   tasks:
   - name: Clone a Git repo
@@ -12,7 +12,7 @@
 
   - name: Creating a file containing the hosts IP 
     template:                          
-      src: "{{ "ansible_all_ipv4_addresses" }}"  
+      src: "{{ ansible_all_ipv4_addresses }}"  
       dest: . /hots_ip.txt
     notify: storing hosts IP address
 
