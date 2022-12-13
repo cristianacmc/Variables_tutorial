@@ -1,0 +1,23 @@
+- hosts: all
+  become: true
+  vars:                                                               # Add
+    app_repo: https://gitlab.com/qacdevops/flask-stages.git 
+  tasks:
+  - name: Clone a Git repo
+    git:
+    repo: "{{app_repo}}"
+    dest: /
+    clone: yes
+    update: yes
+
+  - name: Creating a file containing the hosts IP 
+    template:                          
+      src: "{{ "ansible_all_ipv4_addresses" }}"  
+      dest: . /hots_ip.txt
+    notify: storing hosts IP address
+
+  handlers:                            
+  - name: "Print message if the system is Ubuntu"              
+    debug:
+      msg: "Your OS is {{ inventory_hostname }}"
+    when: "{{ inventory_hostname }}"== ubuntu
