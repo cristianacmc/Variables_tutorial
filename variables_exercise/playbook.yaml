@@ -4,11 +4,11 @@
     app_repo: https://gitlab.com/qacdevops/flask-stages.git 
   tasks:
   - name: Clone a Git repo
-    git:
-    repo: "{{app_repo}}"
-    dest: /
-    clone: yes
-    update: yes
+      git:
+      repo: "{{app_repo}}"
+      dest: /
+      clone: yes
+      update: yes
 
   - name: Creating a file containing the hosts IP 
     template:                          
