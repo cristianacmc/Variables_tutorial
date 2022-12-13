@@ -12,8 +12,8 @@
       update: yes
 
   - name: Creating a file containing the hosts IP 
-    template:                          
-      src: "{{ host_ip }}"  
+    copy:                          
+      content: "{{ host_ip }}"  
       dest: /home/ubuntu/hot_ip.txt
     
 
